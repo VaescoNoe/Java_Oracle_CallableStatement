@@ -1,4 +1,4 @@
-FUNCTION
+==============FUNCTION
 
 CREATE OR REPLACE FUNCTION "HR"."GET_EMPLOYEES_SALARY"(p_emp_id IN employees.employee_id%TYPE)
 RETURN employees.salary%TYPE
@@ -17,6 +17,34 @@ WHERE
 END;
 /
 
+
+=============PROCEDURE
+
+CREATE OR REPLACE PROCEDURE "HR"."SET_EMPLOYEE_SALARY"
+									(p_emp_id IN employees.employee_id%TYPE
+									,p_factor IN NUMBER)
+AS
+	v_monthly_salary employees.salary%TYPE;
+BEGIN
+
+--Obtiene el sueldo actual del id_empleado proporcionado
+
+SELECT NVL(salary, -999)
+INTO v_monthly_salary
+FROM employees
+WHERE employee_id = p_emp_id;
+
+IF(v_monthly_salary!=-999) THEN
+
+UPDATE employees 
+SET salary = salary * p_factor
+WHERE employee_id = p_emp_id; 
+COMMIT;
+DBMS.OUTPUT.PUT_LINE('TERMINO DEL PROGRAMA, Salary:'||v_monthly_salary);
+
+END IF;
+END
+/
 
 
 
