@@ -25,11 +25,15 @@ public class Conexion {
 		ResourceBundle bundle = ResourceBundle.getBundle(file);
 		Enumeration e = bundle.getKeys();
 		String key = null;
+		
 		while(e.hasMoreElements()) {
+			
 			key=(String) e.nextElement();
-				System.out.println("KEY:"+key);
+				System.out.println("KEY:"+key+", VALUE:"+ bundle.getObject(key));
 			prop.put(key, bundle.getObject(key));
+			
 		}
+		
 		JDBC_DRIVER=prop.getProperty("driver");
 		JDBC_URL=prop.getProperty("url");
 		JDBC_USER=prop.getProperty("user");
