@@ -12,7 +12,7 @@ public class TestCursores {
 		OracleResultSet ors = null;
 		
 		try {
-			Connection con = Conexion.getConnection();
+				Connection con = Conexion.getConnection();
 			 oraCallStmt=(OracleCallableStatement) con.prepareCall("{?= call REF_CURSOR_PACKAGE.get_dept_ref_cursor(?)}");
 			 oraCallStmt.registerOutParameter(1, OracleTypes.CURSOR);
 			 oraCallStmt.setInt(2, 200);
