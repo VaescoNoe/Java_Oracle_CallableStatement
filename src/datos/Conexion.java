@@ -29,7 +29,7 @@ public class Conexion {
 		while(e.hasMoreElements()) {
 			
 			key=(String) e.nextElement();
-				System.out.println("KEY:"+key+", VALUE:"+ bundle.getObject(key));
+				System.out.println("KEY:"+key+", VALUE:"+ bundle.getObject(key)+"\n");
 			prop.put(key, bundle.getObject(key));
 			
 		}

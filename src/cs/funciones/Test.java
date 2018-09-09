@@ -42,7 +42,7 @@ public class Test {
 		
 		stmt = con.createStatement();
 			System.out.println("Aumento del 10% al empleado:"+empleadoId);
-		cs = con.prepareCall("{call set_employee_salary(?,?)}");
+		cs = con.prepareCall("{call SET_EMPLOYEE_SALARY(?,?)}");
 		cs.setInt(1, empleadoId);
 		cs.setDouble(2,	incrementoSalario);
 		cs.execute();
