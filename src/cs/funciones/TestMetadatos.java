@@ -25,18 +25,18 @@ public class TestMetadatos {
 				System.out.println("No. columnas:"+columnCount+"\n");
 				
 				for(int i=1;i<=columnCount;i++) {
-					System.out.println("Nombre Columna:"+rsOracle.getColumnName(i));
-					System.out.println("Tipo columna:"+rsOracle.getColumnTypeName(i));
+					System.out.print("Nombre Columna:"+rsOracle.getColumnName(i));
+					System.out.print(",Tipo columna:"+rsOracle.getColumnTypeName(i));
 					
 					switch(rsOracle.isNullable(i)) {
 					case OracleResultSetMetaData.columnNoNulls:
-						System.out.println("No acepta nulos");
+						System.out.print(",No acepta nulos");
 						break;
 					case OracleResultSetMetaData.columnNullable:
-						System.out.println("Si acepta nulos");
+						System.out.print(",Si acepta nulos");
 						break;
 					case OracleResultSetMetaData.columnNullableUnknown:
-						System.out.println("Valor nulo desconocido");
+						System.out.print(",Valor nulo desconocido");
 						break;
 					}
 					System.out.println();
